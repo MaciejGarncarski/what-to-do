@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1F2937">
+    <title>What, to do?</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="bg-waves bg-cover bg-center h-screen p-1 flex justify-center">
+    <header class="w-full h-50 absolute top-0 left-0 opacity-90">
+</header>
+    <main id="main" class="relative z-1 rounded-sm flex items-center justify-center flex-col w-full xl:w-1/2">
+        <form class="flex items-center justify-center w-full gap-4 h-14">
+            <input id="input" type="text" class="my-8 rounded-sm w-44 xl:w-auto pl-2 h-8">
+            <input id="addButton" type="submit" class="cursor-pointer font-bold text-white bg-green-500 rounded-sm ml-4 xl:ml-8 w-20 h-8" value="Add">
+        </form>
+        <section class="w-5/6 h-1/2" id="work-list"></section>
+    </main>
+    <footer class="fixed bottom-0 h-20 w-full flex items-center justify-center">
+        <a href="https://github.com/maciejgarncarski" class="text-white">
+            - Made by: Maciej Garncarski -
+        </a>
+    </footer>
+    <script type="module">
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register(new URL('service-worker.js', import.meta.url))
+            .then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+        }
+    </script>
+    <script src="./index.js" type='module'></script>
+</body>
+</html>
