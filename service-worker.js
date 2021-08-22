@@ -1,0 +1,2 @@
+const MY_CACHE="cache-name",MY_FILES=["style.scss","index.js","cookies.js","waves.svg"];self.addEventListener("install",(e=>{e.waitUntil(caches.open(MY_CACHE).then((e=>e.addAll(MY_FILES))))})),self.addEventListener("activate",(e=>{e.waitUntil(caches.keys().then((e=>Promise.all(e.filter((e=>e!==MY_CACHE)).map((e=>caches.delete(e)))))))})),self.addEventListener("fetch",(e=>{e.respondWith(fetch(e.request).catch((()=>caches.match(e.request))))}));
+//# sourceMappingURL=service-worker.js.map
