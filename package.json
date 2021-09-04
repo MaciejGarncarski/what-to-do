@@ -6,7 +6,7 @@
   "targets": {
     "web": {
       "context": "browser",
-      "publicUrl": "./"
+      "publicUrl": "./dist"
     }
   },
   "license": "MIT",
@@ -15,17 +15,20 @@
     "@parcel/transformer-image": "2.0.0-rc.0",
     "@parcel/transformer-sass": "2.0.0-rc.0",
     "@parcel/transformer-webmanifest": "2.0.0-rc.0",
-    "autoprefixer": "^9",
+    "autoprefixer": "^10.3.4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-html": "^6.1.2",
-    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-import": "^2.24.2",
     "parcel": "^2.0.0-rc.0",
     "postcss": "^8.3.6",
-    "prettier": "^2.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "scripts": {
     "dev": "parcel src/index.html"
+  },
+  "dependencies": {
+    "@sweetalert2/theme-dark": "^5.0.2",
+    "sweetalert2": "^11.1.4"
   }
 }

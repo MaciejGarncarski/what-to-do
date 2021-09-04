@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Cookies, articleClasses, buttonComponent } from './cookies';
 
 import './style.scss';
@@ -30,8 +31,22 @@ class TaskFactory {
     this.hasChild();
     document.querySelectorAll('.delete');
     const task = document.createElement('article');
-    if (this.input.value === '' || this.input.value.length > 25) {
+    if (this.input.value === '') {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Write something!',
+        icon: 'error',
+        confirmButtonText: 'Cool',
+      });
       return;
+    }
+    if (this.input.value.length > 25) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Too much characters!',
+        icon: 'error',
+        confirmButtonText: 'Cool',
+      });
     }
     task.innerHTML = `
             <p class="test text-white text-3xl">${this.input.value}</p>
@@ -47,14 +62,16 @@ class TaskFactory {
   }
 
   deleteTask() {
-    document.querySelectorAll('.delete').forEach((btn) => btn.addEventListener('click', () => {
-      const article = btn.parentElement;
-      article.classList.add(...this.animation);
-      setTimeout(() => {
-        article.remove();
-        localStorage.removeItem('to-do-tasks', btn.previousElementSibling.textContent);
-      }, 400);
-    }));
+    document.querySelectorAll('.delete').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        const article = btn.parentElement;
+        article.classList.add(...this.animation);
+        setTimeout(() => {
+          article.remove();
+          localStorage.removeItem('to-do-tasks', btn.previousElementSibling.textContent);
+        }, 400);
+      }),
+    );
   }
 }
 

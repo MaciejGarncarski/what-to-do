@@ -1,4 +1,15 @@
-export const articleClasses = ['relative', 'animate-show', 'flex', 'bg-green-400', 'items-center', 'rounded-sm', 'justify-between', 'my-8', 'px-3', 'h-14'];
+export const articleClasses = [
+  'relative',
+  'animate-show',
+  'flex',
+  'bg-green-400',
+  'items-center',
+  'rounded-sm',
+  'justify-between',
+  'my-8',
+  'px-3',
+  'h-14',
+];
 export const buttonComponent = '<button class="delete relative bg-white rounded w-6">X</button>';
 
 export class Cookies {
@@ -11,7 +22,6 @@ export class Cookies {
 
   setCookie() {
     const tasks = [];
-    console.log(this.allTasks);
     document.querySelectorAll('article .test').forEach((task) => {
       tasks.unshift(task.textContent);
     });
@@ -22,7 +32,7 @@ export class Cookies {
     let tasks = null;
     if (localStorage.getItem('to-do-tasks') === null) {
       tasks = [];
-      this.container.innerHTML = '<p class="mt-8 text-center text-bold text-green-500 text-3xl">Dodaj nowe zadanie!</p>';
+      this.container.innerHTML = '<p class="mt-8 text-center text-bold text-white text-3xl">Add new task!</p>';
     } else {
       tasks = JSON.parse(localStorage['to-do-tasks']);
     }
